@@ -60,6 +60,7 @@ const Navbar = () => {
             {cartCount}
           </p>
         </Link>
+        <img src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" />
       </div>
     </div>
   );
