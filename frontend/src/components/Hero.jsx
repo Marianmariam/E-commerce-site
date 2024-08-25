@@ -11,7 +11,7 @@ const Hero = () => {
                 <p className='w-8 md:w-11 h-[2px] bg-[#414141]'></p>
                 <p className='font-medium test-sm md:text-base'>OUR BESTSELLER</p>
             </div>
-            <h1 className='text-3x1 sm:py-3 lg:text-5x1 leading-relaxed'>Latest Arrivals</h1>
+            <h1 className='plus-jakarta-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight'>Latest Arrivals</h1>
             <div className='flex items-center gap-2'>
                 <p className='font-semibold text-sm md:text-base'>SHOP NOW</p>
                 <p className='w-8 md:w-11 h-[1px] bg-[#414141]'></p>
