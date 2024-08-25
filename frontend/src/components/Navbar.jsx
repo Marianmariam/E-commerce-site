@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { assets } from '../assets/assets';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const cartCount = 3; // Exemplu de număr de produse în coș. În mod real, acest lucru poate proveni dintr-o stare globală sau context.
 
   return (
     <div className='flex items-center justify-between py-5 px-4 font-medium'>
@@ -35,24 +36,34 @@ const Navbar = () => {
         <div 
           className='relative'
           onMouseEnter={() => setIsMenuVisible(true)}
-          onMouseLeave={() => setIsMenuVisible(false)}
         >
           <img className='w-5 cursor-pointer' src={assets.profile_icon} alt="Profile" />
           
           {/* Dropdown Menu */}
           {isMenuVisible && (
-            <div className='absolute right-0 mt-2 w-36 bg-slate-100 border border-gray-200 rounded-lg shadow-lg'>
+            <div 
+              className='absolute right-0 mt-2 w-36 bg-slate-100 border border-gray-200 rounded-lg shadow-lg'
+              onMouseEnter={() => setIsMenuVisible(true)}
+            >
               <div className='flex flex-col gap-2 py-3 text-gray-500'>
-                <p className='cursor-pointer px-4 hover:text-black'>My Profile</p>
-                <p className='cursor-pointer px-4 hover:text-black'>Orders</p>
-                <p className='cursor-pointer px-4 hover:text-black'>Logout</p>
+                <NavLink to='/profile' className='px-4 py-2 hover:bg-gray-200'>Profile</NavLink>
+                <NavLink to='/settings' className='px-4 py-2 hover:bg-gray-200'>Settings</NavLink>
+                <NavLink to='/logout' className='px-4 py-2 hover:bg-gray-200'>Logout</NavLink>
               </div>
             </div>
           )}
         </div>
+        
+        <Link to='/cart' className='relative'>
+          <img src={assets.cart_icon} className='w-5 min-w-5' alt="Cart" />
+          <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>
+            {cartCount}
+          </p>
+        </Link>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
+
