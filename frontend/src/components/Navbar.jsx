@@ -7,7 +7,7 @@ const Navbar = () => {
   const cartCount = 3; // Exemplu de număr de produse în coș. În mod real, acest lucru poate proveni dintr-o stare globală sau context.
 
   return (
-    <div className='flex items-center justify-between py-5 px-4 font-medium'>
+    <div className='flex items-center justify-between py-5 px-4 font-medium relative'>
       
       <img src={assets.logo} className='w-36' alt="" />
 
@@ -60,11 +60,24 @@ const Navbar = () => {
             {cartCount}
           </p>
         </Link>
-        <img src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" />
+        
+        {/* Iconul meniului pentru ecranele mici */}
+        <img onClick={() => setIsMenuVisible(!isMenuVisible)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="Menu" />
+      </div>
+
+      {/* Meniul lateral */}
+      <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${isMenuVisible ? 'w-full' : 'w-0'}`}>
+        
+        {/* Închide meniul dacă faci clic pe el */}
+        <div className='flex flex-col p-4'>
+          <NavLink to='/' className='py-2' onClick={() => setIsMenuVisible(false)}>Home</NavLink>
+          <NavLink to='/collection' className='py-2' onClick={() => setIsMenuVisible(false)}>Collection</NavLink>
+          <NavLink to='/about' className='py-2' onClick={() => setIsMenuVisible(false)}>About</NavLink>
+          <NavLink to='/contact' className='py-2' onClick={() => setIsMenuVisible(false)}>Contact</NavLink>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Navbar;
-
