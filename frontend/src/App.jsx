@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 
+
 const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:pg-[9vw]'>
