@@ -6,6 +6,8 @@ const Home = () => {
   return (
     <div>
       <Hero/>
+
+      <BestSeller/>
       <LatestCollection/>
     </div>
   )
